@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class App {
+    + Input()
+
+    grabInput()
+
+    + generateOutput(fin)
+
+    sout(output)
+
+}
+class Input {
+    - List: fInputs
+    File()
+    if(exercise42_input.txt?)
+        Scanner in(file)
+        while (in.hasNextLine?)
+            fInputs.add, replace commas
+    else
+        :FileNotFoundException;
+        "File not found"
+        stop
+    endif
+}
+interface generateOutput {
+    sout (Last First Salary)
+    sout (-----------------)
+
+    String output = ""
+    for (i < list size)
+        writeListToOutput()
+    return output
+}
+
+App o--> Input
+Input o--> App
+generateOutput *-- App
+@enduml

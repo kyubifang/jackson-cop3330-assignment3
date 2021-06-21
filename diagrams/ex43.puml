@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class App {
+    + Input()
+}
+class Input {
+    Scanner in
+    sout (site name?)
+    sout (author?)
+    if (js folder?) then (yes)
+        js = true
+    if (css folder?) then (yes)
+        css = true
+    endif
+    createHTML()
+}
+
+interface createHTML {
+    create html struct
+    file(index.html)
+    if(creation possible?)
+        buffer html
+        close buffer
+        if(js true?)
+            add js dir to site
+        if(css true?)
+            add css dir to site
+        endif
+    else
+        :IOException;
+        "Can't create html"
+    endif
+}
+
+App o--> Input
+Input o--> App
+createHTML *-- Input
+@enduml

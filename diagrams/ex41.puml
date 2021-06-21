@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class App {
+    + Input()
+    + Sort()
+
+    grabInput()
+
+    + generateOutput()
+
+}
+class Input {
+    - List: fInputs
+    File()
+    if(exercise41_input.txt?)
+        Scanner in(file)
+        while (in.hasNextLine?)
+            fInputs.add
+    else
+        :FileNotFoundException;
+        "File not found"
+        stop
+    endif
+}
+class Sort {
+    getInput
+    Collections.sort(Input)
+}
+interface generateOutput {
+    if(output possible?)
+        createOutput()
+        for (i < list size)
+            writeListToFile()
+        closeOutput()
+    else
+        :IOException;
+        "Can't output file"
+    endif
+}
+
+App o--> Input
+Input o--> Sort
+Sort *--> Input
+Input o--> App
+generateOutput *-- App
+@enduml
