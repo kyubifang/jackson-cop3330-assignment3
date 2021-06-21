@@ -4,6 +4,7 @@
  */
 
 package oop.assignment3.ex46;
+
 /*
 Exercise 46 - Word Frequency Finder
 
@@ -38,6 +39,10 @@ Challenges
  */
 public class App {
     public static void main(String[] args) {
+        //create input
+        new Input();
+        //grab input file
 
+        //generate output String
     }
 }
